@@ -1,30 +1,25 @@
 import React, { useContext } from 'react';
 import { Context } from '../Context/PlanetsProvider';
+import tableRows from './tableRows';
 
 function PlanetInfos() {
-  const context = useContext(Context);
-  const { data } = context;
+  const { data, filterByName, isFiltered } = useContext(Context);
   const maxDecimalPlaces = 9;
 
   return (
     <tbody>
-      { data.results && data.results.map((planet) => (
-        <tr key={ Math.random().toString().substr(2, maxDecimalPlaces) }>
-          <td>{ planet.name }</td>
-          <td>{ planet.rotation_period }</td>
-          <td>{ planet.orbital_period }</td>
-          <td>{ planet.diameter }</td>
-          <td>{ planet.climate }</td>
-          <td>{ planet.gravity }</td>
-          <td>{ planet.terrain }</td>
-          <td>{ planet.surface_water }</td>
-          <td>{ planet.population }</td>
-          <td>{ planet.films }</td>
-          <td>{ planet.created }</td>
-          <td>{ planet.edited }</td>
-          <td>{ planet.url }</td>
-        </tr>
-      ))}
+      { isFiltered ? data.results && data.results
+        .filter((planet) => planet.name.includes(filterByName.name))
+        .map((planetFiltered) => (
+          <tr key={ Math.random().toString().substr(2, maxDecimalPlaces) }>
+            {tableRows(planetFiltered)}
+          </tr>
+        )) : data.results && data.results
+        .map((planet) => (
+          <tr key={ Math.random().toString().substr(2, maxDecimalPlaces) }>
+            {tableRows(planet)}
+          </tr>
+        ))}
     </tbody>
   );
 }
