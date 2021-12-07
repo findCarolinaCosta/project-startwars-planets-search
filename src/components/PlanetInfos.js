@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Context } from '../Context/PlanetsProvider';
-import tableRows from './tableRows';
+import TableRows from './TableRows';
 
 function PlanetInfos() {
   const { data, filterByName, isFiltered } = useContext(Context);
@@ -8,16 +8,16 @@ function PlanetInfos() {
 
   return (
     <tbody>
-      { isFiltered ? data.results && data.results
-        .filter((planet) => planet.name.includes(filterByName.name))
+      {isFiltered ? data.results && data.results
+        .filter((planet) => planet.name.includes(filterByName))
         .map((planetFiltered) => (
           <tr key={ Math.random().toString().substr(2, maxDecimalPlaces) }>
-            {tableRows(planetFiltered)}
+            <TableRows planet={ planetFiltered } />
           </tr>
         )) : data.results && data.results
         .map((planet) => (
           <tr key={ Math.random().toString().substr(2, maxDecimalPlaces) }>
-            {tableRows(planet)}
+            <TableRows planet={ planet } />
           </tr>
         ))}
     </tbody>
