@@ -8,7 +8,8 @@ const { Provider, Consumer } = Context;
 function PlanetsProvider({ children }) {
   const [data, setData] = useState([]);
   const [filterByName, setFilterByName] = useState({});
-  const [isFiltered, setIsFiltered] = useState(false);
+  const [filtered, setFiltered] = useState('');
+  const [filterByNumericValues, setFilterByNumericValues] = useState([]);
 
   const setDataResponse = async () => {
     setData(await fetchPlanets());
@@ -22,8 +23,10 @@ function PlanetsProvider({ children }) {
     data,
     filterByName,
     setFilterByName,
-    isFiltered,
-    setIsFiltered,
+    filtered,
+    setFiltered,
+    filterByNumericValues,
+    setFilterByNumericValues,
   };
 
   return (
