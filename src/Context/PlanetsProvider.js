@@ -5,12 +5,10 @@ import fetchPlanets from '../services/fetchPlanets';
 const Context = createContext();
 const { Provider, Consumer } = Context;
 
-const INITIAL_CONTEXT = {
-  data: [],
-};
-
 function PlanetsProvider({ children }) {
-  const [data, setData] = useState(INITIAL_CONTEXT);
+  const [data, setData] = useState([]);
+  const [filterByName, setFilterByName] = useState({});
+  const [isFiltered, setIsFiltered] = useState(false);
 
   const setDataResponse = async () => {
     setData(await fetchPlanets());
@@ -22,6 +20,10 @@ function PlanetsProvider({ children }) {
 
   const context = {
     data,
+    filterByName,
+    setFilterByName,
+    isFiltered,
+    setIsFiltered,
   };
 
   return (
