@@ -1,30 +1,21 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Context } from '../Context/PlanetsProvider';
 
 function FilterField() {
-  const { setFilterByName, setIsFiltered } = useContext(Context);
-  const [name, setName] = useState('');
+  const { FilterByName, setFilterByName, setIsFiltered } = useContext(Context);
 
-  const handleChange = () => {
+  const handleChange = (target) => {
     setIsFiltered(true);
-    setFilterByName({ name });
-    setName('');
+    setFilterByName(target.value);
   };
 
   return (
     <div>
       <input
-        value={ name }
-        onChange={ ({ target }) => setName(target.value) }
+        value={ FilterByName }
+        onChange={ ({ target }) => handleChange(target) }
         data-testid="name-filter"
       />
-      <button
-        type="button"
-        onClick={ handleChange }
-      >
-        Filtrar
-
-      </button>
     </div>
   );
 }
