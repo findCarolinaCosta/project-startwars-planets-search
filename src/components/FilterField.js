@@ -1,6 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { Context } from '../Context/PlanetsProvider';
 
+const INITIAL_OPTIONS_COLUMN = ['population',
+  'orbital_period', 'diameter', 'rotation_period', 'surface_water'];
+
 function FilterField() {
   const {
     filterByName,
@@ -12,6 +15,7 @@ function FilterField() {
   const [column, setColumn] = useState('');
   const [comparison, setComparison] = useState('');
   const [value, setValue] = useState('0');
+  const [optionColumn, setOptionColumn] = useState(INITIAL_OPTIONS_COLUMN);
 
   const handleChange = ({ target }) => {
     setFilterByName(target.value);
@@ -42,11 +46,7 @@ function FilterField() {
           onChange={ (event) => setColumn(event.target.value) }
           value={ column }
         >
-          <option>population</option>
-          <option>orbital_period</option>
-          <option>diameter</option>
-          <option>rotation_period</option>
-          <option>surface_water</option>
+          {optionColumn.map((option) => <option key={ option }>{option}</option>)}
         </select>
       </label>
       <label htmlFor="select-comparison">
