@@ -27,6 +27,12 @@ function FilterField() {
     setColumn('population');
     setComparison('maior que');
     setValue('0');
+    const newArrayOptions = optionColumn.filter((option) => option !== column);
+    setOptionColumn(newArrayOptions);
+  };
+
+  const setColumnInfos = ({ target }) => {
+    setColumn(target.value);
   };
 
   return (
@@ -43,7 +49,7 @@ function FilterField() {
           id="select-option"
           data-testid="column-filter"
           name="column"
-          onChange={ (event) => setColumn(event.target.value) }
+          onChange={ (event) => setColumnInfos(event) }
           value={ column }
         >
           {optionColumn.map((option) => <option key={ option }>{option}</option>)}
