@@ -3,7 +3,7 @@ import { Context } from '../Context/PlanetsProvider';
 
 function FilterField() {
   const {
-    FilterByName,
+    filterByName,
     setFilterByName,
     setFiltered,
     setFilterByNumericValues,
@@ -14,12 +14,11 @@ function FilterField() {
   const [value, setValue] = useState('0');
 
   const handleChange = ({ target }) => {
-    setFiltered('Name');
     setFilterByName(target.value);
   };
 
   const handleClick = () => {
-    setFiltered('Select');
+    setFiltered(true);
     setFilterByNumericValues({ column, comparison, value });
     setColumn('population');
     setComparison('maior que');
@@ -29,7 +28,7 @@ function FilterField() {
   return (
     <div>
       <input
-        value={ FilterByName }
+        value={ filterByName }
         onChange={ handleChange }
         data-testid="name-filter"
         placeholder="Filtro pelo nome do planeta"

@@ -12,42 +12,27 @@ function PlanetInfos() {
   } = useContext(Context);
   const maxDecimalPlaces = 9;
 
-  if (filtered === 'Name') {
-    return (
-      <tbody>
-        {data.results && data.results
-          .filter((planet) => planet.name.includes(filterByName))
-          .map((planetFilteredByName) => (
-            <tr key={ Math.random().toString().substr(2, maxDecimalPlaces) }>
-              <TableRows planet={ planetFilteredByName } />
-            </tr>
-          ))}
-      </tbody>
-    );
-  }
-
-  if (filtered === 'Select') {
-    return (
-      <tbody>
-        {data.results && data.results
-          .filter((planet) => getFilterByNumericValues(planet, filterByNumericValues))
-          .map((planetFilterByNumeric) => (
-            <tr key={ Math.random().toString().substr(2, maxDecimalPlaces) }>
-              <TableRows planet={ planetFilterByNumeric } />
-            </tr>
-          ))}
-      </tbody>
-    );
-  }
-
   return (
     <tbody>
-      {data.results && data.results
-        .map((planet) => (
-          <tr key={ Math.random().toString().substr(2, maxDecimalPlaces) }>
-            <TableRows planet={ planet } />
-          </tr>
-        ))}
+      {(data.results && !filtered && filterByName === '') ? (
+        data.results
+          .map((planet) => (
+            <tr key={ Math.random().toString().substr(2, maxDecimalPlaces) }>
+              <TableRows planet={ planet } />
+            </tr>
+          ))
+      )
+        : (
+          data.results && data.results
+            .filter((planet) => getFilterByNumericValues(planet, filterByNumericValues))
+            .filter(({ name }) => (filterByName !== ''
+              ? name.includes(filterByName) : true))
+            .map((planetFilterByNumeric) => (
+              <tr key={ Math.random().toString().substr(2, maxDecimalPlaces) }>
+                <TableRows planet={ planetFilterByNumeric } />
+              </tr>
+            ))
+        )}
     </tbody>
   );
 }

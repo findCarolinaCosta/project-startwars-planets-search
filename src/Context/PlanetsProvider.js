@@ -7,8 +7,8 @@ const { Provider, Consumer } = Context;
 
 function PlanetsProvider({ children }) {
   const [data, setData] = useState([]);
-  const [filterByName, setFilterByName] = useState({});
-  const [filtered, setFiltered] = useState('');
+  const [filterByName, setFilterByName] = useState('');
+  const [filtered, setFiltered] = useState(false);
   const [filterByNumericValues, setFilterByNumericValues] = useState([]);
 
   const setDataResponse = async () => {
