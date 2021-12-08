@@ -40,6 +40,12 @@ function FilterField() {
     setColumn(target.value);
   };
 
+  const removeFilter = ({ target: { name } }) => {
+    setArrFilter((prevState) => prevState.filter((state) => state.column !== name)); // remove item com base no name do botão
+    setOptionColumn((prevState) => [...prevState, name]); // volta a option para o select da coluna de filtro
+    setFilterByNumericValues([arrFilter[arrFilter.length - 1]]); // renderiza filtro anterior
+  };
+
   return (
     <div>
       <input
