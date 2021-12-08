@@ -12,8 +12,8 @@ function FilterField() {
     setFilterByNumericValues,
   } = useContext(Context);
 
-  const [column, setColumn] = useState('');
-  const [comparison, setComparison] = useState('');
+  const [column, setColumn] = useState('population');
+  const [comparison, setComparison] = useState('maior que');
   const [value, setValue] = useState('0');
   const [optionColumn, setOptionColumn] = useState(INITIAL_OPTIONS_COLUMN);
   const [arrFilter, setArrFilter] = useState([]);
