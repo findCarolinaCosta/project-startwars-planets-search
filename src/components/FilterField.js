@@ -16,6 +16,7 @@ function FilterField() {
   const [comparison, setComparison] = useState('');
   const [value, setValue] = useState('0');
   const [optionColumn, setOptionColumn] = useState(INITIAL_OPTIONS_COLUMN);
+  const [arrFilter, setArrFilter] = useState([]);
 
   const handleChange = ({ target }) => {
     setFilterByName(target.value);
@@ -24,6 +25,10 @@ function FilterField() {
   const handleClick = () => {
     setFiltered(true);
     setFilterByNumericValues({ column, comparison, value });
+    setArrFilter((prevState) => ([
+      ...prevState,
+      { column, comparison, value },
+    ]));
     setColumn('population');
     setComparison('maior que');
     setValue('0');
@@ -84,6 +89,26 @@ function FilterField() {
         Filtrar
 
       </button>
+      <div>
+        {arrFilter.map((item) => (
+          <div
+            key={ item.column }
+            data-testid="filter"
+          >
+            <span>
+              {`${item.column}
+                  ${item.comparison} ${item.value}`}
+            </span>
+            <button
+              type="button"
+              name={ item.column }
+              onClick={ removeFilter }
+            >
+              X
+            </button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
