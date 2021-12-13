@@ -10,6 +10,7 @@ function PlanetsProvider({ children }) {
   const [filterByName, setFilterByName] = useState('');
   const [filtered, setFiltered] = useState(false);
   const [filterByNumericValues, setFilterByNumericValues] = useState([]);
+  const [order, setOrder] = useState({});
 
   const setDataResponse = async () => {
     setData(await fetchPlanets());
@@ -27,6 +28,8 @@ function PlanetsProvider({ children }) {
     setFiltered,
     filterByNumericValues,
     setFilterByNumericValues,
+    order,
+    setOrder,
   };
 
   return (
