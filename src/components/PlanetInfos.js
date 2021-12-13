@@ -9,13 +9,16 @@ function PlanetInfos() {
     filterByName,
     filtered,
     filterByNumericValues,
+    order,
   } = useContext(Context);
   const maxDecimalPlaces = 9;
 
   return (
     <tbody>
-      {(data.results && !filtered && filterByName === '') ? (
+      {(data.results && !filtered && filterByName === '' && !order.column) ? (
         data.results
+          .sort((prevPlanet, nextPlanet) => prevPlanet
+            .name.localeCompare(nextPlanet.name))
           .map((planet) => (
             <tr key={ Math.random().toString().substr(2, maxDecimalPlaces) }>
               <TableRows planet={ planet } />
