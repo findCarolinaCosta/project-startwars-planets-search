@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Context } from '../Context/PlanetsProvider';
 import getFilterByNumericValues from '../helpers/getFilterByNumericValues';
+import getSort from '../helpers/getSort';
 import TableRows from './TableRows';
 
 function PlanetInfos() {
@@ -30,6 +31,7 @@ function PlanetInfos() {
             .filter((planet) => getFilterByNumericValues(planet, filterByNumericValues))
             .filter(({ name }) => (filterByName !== ''
               ? name.includes(filterByName) : true))
+            .sort((prevPlanet, nextPlanet) => getSort(prevPlanet, nextPlanet, order))
             .map((planetFilterByNumeric) => (
               <tr key={ Math.random().toString().substr(2, maxDecimalPlaces) }>
                 <TableRows planet={ planetFilterByNumeric } />
