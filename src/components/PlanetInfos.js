@@ -16,8 +16,8 @@ function PlanetInfos() {
 
   return (
     <tbody>
-      {(data.results && !filtered && filterByName === '' && !order.column) ? (
-        data.results
+      {(!filtered && filterByName === '' && !order.column) ? (
+        data
           .sort((prevPlanet, nextPlanet) => prevPlanet
             .name.localeCompare(nextPlanet.name))
           .map((planet) => (
@@ -27,7 +27,7 @@ function PlanetInfos() {
           ))
       )
         : (
-          data.results && data.results
+          data
             .filter((planet) => getFilterByNumericValues(planet, filterByNumericValues))
             .filter(({ name }) => (filterByName !== ''
               ? name.includes(filterByName) : true))
