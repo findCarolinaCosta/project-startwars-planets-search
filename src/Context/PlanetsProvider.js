@@ -2,6 +2,8 @@ import React, { createContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import fetchPlanets from '../services/fetchPlanets';
 
+// Provider, Consumer, Context "global" no mesmo arquivo, porque estão relacionados e melhora a manipulação
+
 const Context = createContext();
 const { Provider, Consumer } = Context;
 
