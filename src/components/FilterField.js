@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Context } from '../Context/PlanetsProvider';
 
-const INITIAL_OPTIONS_COLUMN = ['population',
+export const INITIAL_OPTIONS_COLUMN = ['population',
   'orbital_period', 'diameter', 'rotation_period', 'surface_water'];
 
 function FilterField() {
