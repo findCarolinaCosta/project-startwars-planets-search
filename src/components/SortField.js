@@ -20,7 +20,7 @@ function SortField() {
   };
 
   return (
-    <div>
+    <div className="p-4">
       <label htmlFor="option__order">
         Ordenar:
         <select
@@ -60,6 +60,7 @@ function SortField() {
         data-testid="column-sort-button"
         type="button"
         onClick={ handleClick }
+        className="btn btn-info"
       >
         Ordenar
       </button>

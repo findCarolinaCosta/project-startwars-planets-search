@@ -47,55 +47,58 @@ function FilterField() {
   };
 
   return (
-    <div>
+    <section className="flex p-4 align-center">
       <input
         value={ filterByName }
         onChange={ handleChange }
         data-testid="name-filter"
         placeholder="Filtro pelo nome do planeta"
       />
-      <label htmlFor="select-option">
-        Filtre por:
-        <select
-          id="select-option"
-          data-testid="column-filter"
-          name="column"
-          onChange={ (event) => setColumnInfos(event) }
-          value={ column }
-        >
-          {optionColumn.map((option) => <option key={ option }>{option}</option>)}
-        </select>
-      </label>
-      <label htmlFor="select-comparison">
-        <select
-          id="select-comparison"
-          data-testid="comparison-filter"
-          name="comparison"
-          onChange={ (event) => setComparison(event.target.value) }
-          value={ comparison }
-        >
-          <option>maior que</option>
-          <option>menor que</option>
-          <option>igual a</option>
-        </select>
-      </label>
-      <input
-        type="number"
-        data-testid="value-filter"
-        placeholder="Digite um valor"
-        name="value"
-        value={ value }
-        onChange={ (event) => setValue(event.target.value) }
-      />
+      <div className="flex justify-around w-6/12 align-center">
+        <label htmlFor="select-option">
+          Filtre por:
+          <select
+            id="select-option"
+            data-testid="column-filter"
+            name="column"
+            onChange={ (event) => setColumnInfos(event) }
+            value={ column }
+          >
+            {optionColumn.map((option) => <option key={ option }>{option}</option>)}
+          </select>
+        </label>
+        <label htmlFor="select-comparison">
+          <select
+            id="select-comparison"
+            data-testid="comparison-filter"
+            name="comparison"
+            onChange={ (event) => setComparison(event.target.value) }
+            value={ comparison }
+          >
+            <option>maior que</option>
+            <option>menor que</option>
+            <option>igual a</option>
+          </select>
+        </label>
+        <input
+          type="number"
+          data-testid="value-filter"
+          placeholder="Digite um valor"
+          name="value"
+          value={ value }
+          onChange={ (event) => setValue(event.target.value) }
+        />
+      </div>
       <button
         type="button"
         data-testid="button-filter"
         onClick={ handleClick }
+        className="btn btn-info"
       >
         Filtrar
 
       </button>
-      <div>
+      <div className="">
         {arrFilter.map((item) => (
           <div
             key={ item.column }
@@ -115,7 +118,7 @@ function FilterField() {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 

@@ -8,8 +8,10 @@ import { Provider } from './Context/PlanetsProvider';
 function App() {
   return (
     <Provider>
-      <FilterField />
-      <SortField />
+      <section className="">
+        <FilterField />
+        <SortField />
+      </section>
       <Table />
     </Provider>
   );

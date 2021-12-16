@@ -4,7 +4,7 @@ import PlanetInfos from './PlanetInfos';
 function Table() {
   return (
     <div>
-      <table>
+      <table className="table m-5">
         <thead>
           <tr>
             <th>Name</th>
