@@ -5,7 +5,6 @@
 
 .svg-icon-trash {
   cursor: pointer;
-  /* text-align: center; */
   color: rgb(244, 67, 54);
   box-sizing: border-box;
   padding: 0;
@@ -24,4 +23,15 @@
   background-image: url('./images/background.jpg');
   background-repeat: no-repeat;
   background-size: 100%;
+}
+
+.div__table {
+  width: 100%;
+  overflow-x: auto;
+  max-height: 490px;
+}
+
+.table__row:hover {
+  background-color: rgb(13, 202, 240);
+  transition: 0.2s;
 }

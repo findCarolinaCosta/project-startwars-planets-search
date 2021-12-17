@@ -3,8 +3,8 @@ import PlanetInfos from './PlanetInfos';
 
 function Table() {
   return (
-    <div>
-      <table className="table m-5">
+    <div className="div__table table-responsive">
+      <table className="table m-5 table-bordered align-middle table-sm">
         <thead>
           <tr>
             <th>Name</th>

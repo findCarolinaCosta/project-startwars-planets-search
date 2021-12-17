@@ -25,7 +25,7 @@ function PlanetInfos() {
           .map((planet, index) => (
             <tr
               key={ Math.random().toString().substr(2, maxDecimalPlaces) }
-              className={ index % 2 === 0 ? 'table-active' : '' }
+              className={ index % 2 === 0 ? 'table-active table__row' : 'table__row' }
             >
               <TableRows planet={ planet } />
             </tr>
@@ -44,7 +44,7 @@ function PlanetInfos() {
             .map((planetFilterByNumeric, index) => (
               <tr
                 key={ Math.random().toString().substr(2, maxDecimalPlaces) }
-                className={ index % 2 === 0 ? 'table-active' : '' }
+                className={ index % 2 === 0 ? 'table-active table__row' : 'table__row' }
               >
                 <TableRows planet={ planetFilterByNumeric } />
               </tr>

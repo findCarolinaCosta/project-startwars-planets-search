@@ -12,7 +12,9 @@ function App() {
         <FilterField />
         <SortField />
       </section>
-      <Table />
+      <div className="div__table font-bold">
+        <Table />
+      </div>
     </Provider>
   );
 }
