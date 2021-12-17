@@ -20,21 +20,22 @@ function SortField() {
   };
 
   return (
-    <div className="p-4">
-      <label htmlFor="option__order">
-        Ordenar:
+    <div className="flex p-4 align-middle justify-center gap-5">
+      <p className="self-center">Ordenar:</p>
+      <label htmlFor="option__order" className="self-center">
         <select
           id="option__order"
           data-testid="column-sort"
           name="column"
           onChange={ ({ target }) => setChosenColumn(target.value) }
           value={ chosenColumn }
+          className="form-select"
         >
           {INITIAL_OPTIONS_COLUMN
             .map((option) => <option key={ option }>{option}</option>)}
         </select>
       </label>
-      <label htmlFor="sort__asc">
+      <label htmlFor="sort__asc" className="self-center">
         <input
           name="opcao"
           id="sort__asc"
@@ -42,10 +43,11 @@ function SortField() {
           data-testid="column-sort-input-asc"
           value="ASC"
           onChange={ handleChange }
+          className="form-check-input"
         />
         Ascendente
       </label>
-      <label htmlFor="sort__dsc">
+      <label htmlFor="sort__dsc" className="self-center">
         <input
           name="opcao"
           id="sort__dsc"
@@ -53,6 +55,7 @@ function SortField() {
           data-testid="column-sort-input-desc"
           value="DESC"
           onChange={ handleChange }
+          className="form-check-input"
         />
         Descendente
       </label>
