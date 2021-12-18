@@ -35,3 +35,78 @@
   background-color: rgb(13, 202, 240);
   transition: 0.2s;
 }
+
+.svg__letters-1 {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 10s linear forwards;
+}
+
+.svg__letters-2 {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 10s linear forwards;
+}
+
+.svg__letters-3 {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 10s linear forwards;
+}
+
+.svg__letters-4 {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 20s linear forwards;
+}
+
+.svg__letters-5 {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 25s linear forwards;
+}
+
+
+.svg__letters-6 {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 30s linear forwards;
+}
+
+.svg__letters-7 {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 30s linear forwards;
+}
+
+.svg__letters-8 {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 30s linear forwards;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.text__planets {
+  font-family: sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 6px;
+  font-weight: bold;
+
+  /* animação */
+  transform: translateY(6px);
+  clip-path: inset(0 0 100% 0);
+  animation: transf 1s 2.8s forwards;
+}
+
+@keyframes transf {
+  to {
+    transform: translateY(0px);
+    clip-path: inset(0 0 0 0);
+  }
+}
