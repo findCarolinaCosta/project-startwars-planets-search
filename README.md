@@ -1,7 +1,7 @@
 # Star wars planets search
 ## _Search and discover the star wars planets_
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://findcarolinacosta.github.io/project-startwars-planets-search/)
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://findcarolinacosta.github.io/project-starwars-planets-search/)
 
 This is a star wars planets search application, an incredible project that I developed during my training at Trybe. And its main goal to practice ReactJS, Context Api, dynamic search and dynamic filtering.
 
